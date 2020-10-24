@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <title>WebRTC AR Filter Demo</title>
+    <style>
+        .custom_btn_length {
+            width: 240px !important;
+            margin-right: 10px !important;
+        }
+
+        canvas {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            object-fit: cover;
+            transform: scaleX(-1);
+        }
+
+        .grayscale {
+          filter: grayscale(1);
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <!-- header -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">WebRTC AR-Filter Demo</h1>
+            <p class="lead">This PoC prototype is developed by Mediatek</p>
+        </div>
+    </div>
+
+    <div id="button_container" class="container">
+    </div>  
+
+    <br/>
+
+    <canvas id="filtered_canvas" width="1280" height="720"></canvas>
+	<script src="./dist/bundle.js" charset="utf-8"></script>  
+
+  </body>
+</html>
