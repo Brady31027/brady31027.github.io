@@ -45,8 +45,8 @@ function onGrayscaleClicked() {
 }
 
 function onArStickerClicked() {
-    filterOption = 'ar_sticker';
-    isArStickerOn = true;
+    //filterOption = 'ar_sticker';
+    //isArStickerOn = true;
     console.log("switch to ar sticker");
 }
 
@@ -61,11 +61,11 @@ grayscaleBtn.classList.add('btn-success');
 grayscaleBtn.classList.add('custom_btn_length');
 grayscaleBtn.innerText = "Grayscale";
 grayscaleBtn.addEventListener( 'click', onGrayscaleClicked);
-arStickerBtn.classList.add('btn');
-arStickerBtn.classList.add('btn-info');
-arStickerBtn.classList.add('custom_btn_length');
-arStickerBtn.innerText = "AR Sticker";
-arStickerBtn.addEventListener( 'click', onArStickerClicked);
+//arStickerBtn.classList.add('btn');
+//arStickerBtn.classList.add('btn-info');
+//arStickerBtn.classList.add('custom_btn_length');
+//arStickerBtn.innerText = "AR Sticker";
+//arStickerBtn.addEventListener( 'click', onArStickerClicked);
 removeFilterBtn.classList.add('btn');
 removeFilterBtn.classList.add('btn-primary');
 removeFilterBtn.classList.add('custom_btn_length');
@@ -76,6 +76,7 @@ buttonContainer.appendChild(grayscaleBtn);
 buttonContainer.appendChild(arStickerBtn);
 buttonContainer.appendChild(removeFilterBtn);
 
+/*
 Promise.all([
     ar_image.src = "img/duck2.png",
 ]).then(() => {
@@ -83,8 +84,9 @@ Promise.all([
     loadMedia();
 }).catch(()=> {
     debugMsg.innerText += "\n [Error] Can't load AR image\n";
+    debugMsg.innerText += "[Error] "+err.name+ ": "+ err.message +"\n";
 });
-
+*/
 
 function loadMedia() {
     navigator.mediaDevices.getUserMedia({
@@ -108,3 +110,5 @@ function loadMedia() {
         debugMsg.innerText += "[Error] "+err.name+ ": "+ err.message +"\n";
       });
 } 
+
+loadMedia();
