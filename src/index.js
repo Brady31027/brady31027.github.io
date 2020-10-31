@@ -3,8 +3,8 @@ let ar_image = new Image();
 const width = 1280;
 const height = 720;
 let filterOption = "";
+let debugMsg = document.getElementById('debug_msg');
 let buttonContainer = document.getElementById('button_container');
-
 let grayscaleBtn = document.createElement('button');
 let arStickerBtn = document.createElement('button');
 let isArStickerOn = false;
@@ -78,11 +78,15 @@ buttonContainer.appendChild(removeFilterBtn);
 
 Promise.all([
     ar_image.src = "img/duck2.png",
-]).then(loadMedia)
+]).then(() => {
+    debugMsg.innerText += "\n AR image loaded successfully\n";
+    loadMedia();
+}).catch(()=> {
+    debugMsg.innerText += "\n [Error] Can't load AR image\n";
+});
 
 
 function loadMedia() {
-    //ar_image.crossOrigin="Anonymous";
     navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
@@ -94,10 +98,13 @@ function loadMedia() {
             }
         },
       }).then(stream => {
-        
+        debugMsg.innerText += "Starting local stream...\n";
         videoElement.srcObject = stream;
         videoElement.muted = true;
         videoElement.play();
         drawToCanvas();
+      }).catch((err) => {
+        debugMsg.innerText += "[Error] Can't start local stream\n";
+        debugMsg.innerText += "[Error] "+err.name+ ": "+ err.message +"\n";
       });
 } 
