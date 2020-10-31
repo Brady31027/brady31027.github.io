@@ -61,10 +61,10 @@ grayscaleBtn.classList.add('btn-success');
 grayscaleBtn.classList.add('custom_btn_length');
 grayscaleBtn.innerText = "Grayscale";
 grayscaleBtn.addEventListener( 'click', onGrayscaleClicked);
-//arStickerBtn.classList.add('btn');
-//arStickerBtn.classList.add('btn-info');
-//arStickerBtn.classList.add('custom_btn_length');
-//arStickerBtn.innerText = "AR Sticker";
+arStickerBtn.classList.add('btn');
+arStickerBtn.classList.add('btn-info');
+arStickerBtn.classList.add('custom_btn_length');
+arStickerBtn.innerText = "AR Sticker";
 //arStickerBtn.addEventListener( 'click', onArStickerClicked);
 removeFilterBtn.classList.add('btn');
 removeFilterBtn.classList.add('btn-primary');
@@ -111,4 +111,9 @@ function loadMedia() {
       });
 } 
 
-loadMedia();
+try {
+    loadMedia();
+} catch (err) {
+    debugMsg.innerText += "[Error] Can't start local stream\n";
+    debugMsg.innerText += "[Error] "+err.name+ ": "+ err.message +"\n";
+}
